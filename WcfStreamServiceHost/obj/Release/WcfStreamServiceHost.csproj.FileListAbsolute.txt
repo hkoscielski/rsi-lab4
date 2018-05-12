@@ -1,0 +1,11 @@
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\bin\Release\WcfStreamServiceHost.exe.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\bin\Release\WcfStreamServiceHost.exe
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\bin\Release\WcfStreamServiceHost.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\bin\Release\WcfStreamServiceContract.dll
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\bin\Release\WcfStreamServiceContract.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\bin\Release\WcfStreamServiceContract.dll.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\obj\Release\WcfStreamServiceHost.csprojResolveAssemblyReference.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\obj\Release\WcfStreamServiceHost.csproj.CoreCompileInputs.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\obj\Release\WcfStreamServiceHost.csproj.CopyComplete
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\obj\Release\WcfStreamServiceHost.exe
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceHost\obj\Release\WcfStreamServiceHost.pdb
