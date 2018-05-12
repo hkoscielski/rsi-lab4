@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceClient", "WcfServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfCallbackContract", "WcfCallbackContract\WcfCallbackContract.csproj", "{B39B3E7E-917A-4828-A971-0AC27FB66759}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfStreamServiceContract", "WcfStreamServiceContract\WcfStreamServiceContract.csproj", "{64737C60-72E2-4091-94D2-65AFB18DE99E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfStreamServiceHost", "WcfStreamServiceHost\WcfStreamServiceHost.csproj", "{FDEC850E-4015-4860-8D3F-0AA80FC762F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{B39B3E7E-917A-4828-A971-0AC27FB66759}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B39B3E7E-917A-4828-A971-0AC27FB66759}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B39B3E7E-917A-4828-A971-0AC27FB66759}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64737C60-72E2-4091-94D2-65AFB18DE99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64737C60-72E2-4091-94D2-65AFB18DE99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64737C60-72E2-4091-94D2-65AFB18DE99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64737C60-72E2-4091-94D2-65AFB18DE99E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDEC850E-4015-4860-8D3F-0AA80FC762F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDEC850E-4015-4860-8D3F-0AA80FC762F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDEC850E-4015-4860-8D3F-0AA80FC762F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDEC850E-4015-4860-8D3F-0AA80FC762F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
