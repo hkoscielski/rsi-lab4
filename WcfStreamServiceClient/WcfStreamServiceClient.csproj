@@ -64,6 +64,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference1\MojStrumien.wsdl" />
+    <None Include="Connected Services\ServiceReference1\WcfStreamServiceClient.ServiceReference1.ResponseFileMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

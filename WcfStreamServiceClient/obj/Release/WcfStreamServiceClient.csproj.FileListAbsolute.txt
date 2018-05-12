@@ -1,7 +1,6 @@
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceClient\bin\Release\WcfStreamServiceClient.exe.config
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceClient\bin\Release\WcfStreamServiceClient.exe
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceClient\bin\Release\WcfStreamServiceClient.pdb
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceClient\obj\Release\WcfStreamServiceClient.csprojResolveAssemblyReference.cache
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceClient\obj\Release\WcfStreamServiceClient.csproj.CoreCompileInputs.cache
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceClient\obj\Release\WcfStreamServiceClient.exe
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceClient\obj\Release\WcfStreamServiceClient.pdb

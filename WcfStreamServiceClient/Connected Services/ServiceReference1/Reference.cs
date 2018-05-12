@@ -20,6 +20,55 @@ namespace WcfStreamServiceClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetStream", ReplyAction="http://tempuri.org/IStrumien/GetStreamResponse")]
         System.Threading.Tasks.Task<System.IO.Stream> GetStreamAsync(string nazwa);
+        
+        // CODEGEN: Generating message contract since the wrapper name (RequestFileMessage) of message RequestFileMessage does not match the default value (GetMStream)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetMStream", ReplyAction="http://tempuri.org/IStrumien/GetMStreamResponse")]
+        WcfStreamServiceClient.ServiceReference1.ResponseFileMessage GetMStream(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetMStream", ReplyAction="http://tempuri.org/IStrumien/GetMStreamResponse")]
+        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> GetMStreamAsync(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="RequestFileMessage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class RequestFileMessage {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string nazwa1;
+        
+        public RequestFileMessage() {
+        }
+        
+        public RequestFileMessage(string nazwa1) {
+            this.nazwa1 = nazwa1;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ResponseFileMessage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ResponseFileMessage {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public string nazwa2;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public long rozmiar;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.IO.Stream dane;
+        
+        public ResponseFileMessage() {
+        }
+        
+        public ResponseFileMessage(string nazwa2, long rozmiar, System.IO.Stream dane) {
+            this.nazwa2 = nazwa2;
+            this.rozmiar = rozmiar;
+            this.dane = dane;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +104,31 @@ namespace WcfStreamServiceClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.IO.Stream> GetStreamAsync(string nazwa) {
             return base.Channel.GetStreamAsync(nazwa);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WcfStreamServiceClient.ServiceReference1.ResponseFileMessage WcfStreamServiceClient.ServiceReference1.IStrumien.GetMStream(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request) {
+            return base.Channel.GetMStream(request);
+        }
+        
+        public string GetMStream(string nazwa1, out long rozmiar, out System.IO.Stream dane) {
+            WcfStreamServiceClient.ServiceReference1.RequestFileMessage inValue = new WcfStreamServiceClient.ServiceReference1.RequestFileMessage();
+            inValue.nazwa1 = nazwa1;
+            WcfStreamServiceClient.ServiceReference1.ResponseFileMessage retVal = ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).GetMStream(inValue);
+            rozmiar = retVal.rozmiar;
+            dane = retVal.dane;
+            return retVal.nazwa2;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> WcfStreamServiceClient.ServiceReference1.IStrumien.GetMStreamAsync(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request) {
+            return base.Channel.GetMStreamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> GetMStreamAsync(string nazwa1) {
+            WcfStreamServiceClient.ServiceReference1.RequestFileMessage inValue = new WcfStreamServiceClient.ServiceReference1.RequestFileMessage();
+            inValue.nazwa1 = nazwa1;
+            return ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).GetMStreamAsync(inValue);
         }
     }
 }

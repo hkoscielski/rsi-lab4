@@ -44,6 +44,15 @@ namespace WcfStreamServiceClient
             Stream stream2 = client2.GetStream("image.jpg");
             ZapiszPlik(stream2, filePath);
 
+            Console.WriteLine("Wywoluje GetMStream()");
+            Stream fs = null;
+            long rozmiar;
+            string nnn = "image.jpg";
+            nnn = client2.GetMStream(nnn, out rozmiar, out fs);
+            filePath = Path.Combine(System.Environment.CurrentDirectory, nnn);
+            ZapiszPlik(fs, filePath);
+            Console.WriteLine("Koniec GetMStream");
+
             client2.Close();
             Console.WriteLine();
             Console.WriteLine("Nacisnij <ENTER> aby zakonczyc.");

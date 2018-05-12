@@ -13,10 +13,24 @@
   <wsdl:message name="IStrumien_GetStream_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetStreamResponse" />
   </wsdl:message>
+  <wsdl:message name="RequestFileMessage">
+    <wsdl:part name="parameters" element="tns:RequestFileMessage" />
+  </wsdl:message>
+  <wsdl:message name="ResponseFileMessage">
+    <wsdl:part name="parameters" element="tns:ResponseFileMessage" />
+  </wsdl:message>
+  <wsdl:message name="ResponseFileMessage_Headers">
+    <wsdl:part name="nazwa2" element="tns:nazwa2" />
+    <wsdl:part name="rozmiar" element="tns:rozmiar" />
+  </wsdl:message>
   <wsdl:portType name="IStrumien">
     <wsdl:operation name="GetStream">
       <wsdl:input wsaw:Action="http://tempuri.org/IStrumien/GetStream" message="tns:IStrumien_GetStream_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IStrumien/GetStreamResponse" message="tns:IStrumien_GetStream_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMStream">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStrumien/GetMStream" name="RequestFileMessage" message="tns:RequestFileMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStrumien/GetMStreamResponse" name="ResponseFileMessage" message="tns:ResponseFileMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IStrumien" type="tns:IStrumien">
@@ -27,6 +41,17 @@
         <soap:body use="literal" />
       </wsdl:input>
       <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMStream">
+      <soap:operation soapAction="http://tempuri.org/IStrumien/GetMStream" style="document" />
+      <wsdl:input name="RequestFileMessage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ResponseFileMessage">
+        <soap:header message="tns:ResponseFileMessage_Headers" part="nazwa2" use="literal" />
+        <soap:header message="tns:ResponseFileMessage_Headers" part="rozmiar" use="literal" />
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
