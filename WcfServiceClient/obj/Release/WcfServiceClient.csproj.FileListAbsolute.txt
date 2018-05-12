@@ -1,0 +1,7 @@
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceClient\bin\Release\WcfServiceClient.exe.config
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceClient\bin\Release\WcfServiceClient.exe
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceClient\bin\Release\WcfServiceClient.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceClient\obj\Release\WcfServiceClient.csprojResolveAssemblyReference.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceClient\obj\Release\WcfServiceClient.csproj.CoreCompileInputs.cache
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceClient\obj\Release\WcfServiceClient.exe
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceClient\obj\Release\WcfServiceClient.pdb
