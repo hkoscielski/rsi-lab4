@@ -96,7 +96,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_ISerwis_Funkcja_Input_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ISerwis_Funkcja1_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -115,7 +115,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSHttpBinding_ISerwis_Funkcja_output_policy">
+  <wsp:Policy wsu:Id="WSHttpBinding_ISerwis_Funkcja1_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -159,19 +159,19 @@
       <xsd:import schemaLocation="http://localhost:10004/MojSerwis?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="ISerwis_Funkcja_InputMessage">
-    <wsdl:part name="parameters" element="tns:Funkcja" />
+  <wsdl:message name="ISerwis_Funkcja1_InputMessage">
+    <wsdl:part name="parameters" element="tns:Funkcja1" />
   </wsdl:message>
-  <wsdl:message name="ISerwis_Funkcja_OutputMessage">
-    <wsdl:part name="parameters" element="tns:FunkcjaResponse" />
+  <wsdl:message name="ISerwis_Funkcja1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Funkcja1Response" />
   </wsdl:message>
   <wsdl:message name="ISerwis_Funkcja2_InputMessage">
     <wsdl:part name="parameters" element="tns:Funkcja2" />
   </wsdl:message>
   <wsdl:portType name="ISerwis">
-    <wsdl:operation name="Funkcja">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISerwis/Funkcja" message="tns:ISerwis_Funkcja_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISerwis/FunkcjaResponse" message="tns:ISerwis_Funkcja_OutputMessage" />
+    <wsdl:operation name="Funkcja1">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISerwis/Funkcja1" message="tns:ISerwis_Funkcja1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISerwis/Funkcja1Response" message="tns:ISerwis_Funkcja1_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Funkcja2">
       <wsdl:input wsaw:Action="http://tempuri.org/ISerwis/Funkcja2" message="tns:ISerwis_Funkcja2_InputMessage" />
@@ -180,14 +180,14 @@
   <wsdl:binding name="WSHttpBinding_ISerwis" type="tns:ISerwis">
     <wsp:PolicyReference URI="#WSHttpBinding_ISerwis_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="Funkcja">
-      <soap12:operation soapAction="http://tempuri.org/ISerwis/Funkcja" style="document" />
+    <wsdl:operation name="Funkcja1">
+      <soap12:operation soapAction="http://tempuri.org/ISerwis/Funkcja1" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSHttpBinding_ISerwis_Funkcja_Input_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ISerwis_Funkcja1_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSHttpBinding_ISerwis_Funkcja_output_policy" />
+        <wsp:PolicyReference URI="#WSHttpBinding_ISerwis_Funkcja1_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

@@ -11,7 +11,7 @@ namespace WcfServiceContract
     [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple)]
     public class MojSerwis : ISerwis
     {
-        void ISerwis.Funkcja(string s1)
+        void ISerwis.Funkcja1(string s1)
         {
             Console.WriteLine("...{0}: funkcja1 - start", s1);
             Thread.Sleep(2000);

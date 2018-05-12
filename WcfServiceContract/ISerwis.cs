@@ -11,7 +11,7 @@ namespace WcfServiceContract
     public interface ISerwis
     {
         [OperationContract]
-        void Funkcja(string s1);
+        void Funkcja1(string s1);
         [OperationContract(IsOneWay = true)]
         void Funkcja2(string s2);
     }

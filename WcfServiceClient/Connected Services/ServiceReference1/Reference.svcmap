@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="82ac3a98-fe4f-4248-b1f7-05af2b977f40" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a16019be-8c65-40f7-a987-ee5863206a90" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:10004/MojSerwis" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="MojSerwis.wsdl" MetadataType="Wsdl" ID="56a93956-db60-4f54-bc9e-7c0a7d2684d4" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?wsdl" />
-    <MetadataFile FileName="MojSerwis.xsd" MetadataType="Schema" ID="4785b1c5-23e7-467d-9a94-54bfead3b8a0" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?xsd=xsd1" />
-    <MetadataFile FileName="MojSerwis1.xsd" MetadataType="Schema" ID="ddb75b4a-cca1-497c-9c8d-15f418a8227c" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?xsd=xsd0" />
-    <MetadataFile FileName="MojSerwis.disco" MetadataType="Disco" ID="6ca08429-fc73-4258-a2c2-fb31efe7f670" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?disco" />
+    <MetadataFile FileName="MojSerwis.wsdl" MetadataType="Wsdl" ID="a772a7b0-b2ad-4fa9-8d91-5cd10e5dd224" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?wsdl" />
+    <MetadataFile FileName="MojSerwis.xsd" MetadataType="Schema" ID="496edfd3-b1a6-4771-98cb-ea69d20e1a8f" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?xsd=xsd1" />
+    <MetadataFile FileName="MojSerwis1.xsd" MetadataType="Schema" ID="291711da-b2cd-400d-844e-9aaba0842011" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?xsd=xsd0" />
+    <MetadataFile FileName="MojSerwis.disco" MetadataType="Disco" ID="ed1d59a9-8e50-4468-aa76-f029254eca4f" SourceId="1" SourceUrl="http://localhost:10004/MojSerwis?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

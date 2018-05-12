@@ -15,11 +15,11 @@ namespace WcfServiceClient.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ISerwis")]
     public interface ISerwis {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISerwis/Funkcja", ReplyAction="http://tempuri.org/ISerwis/FunkcjaResponse")]
-        void Funkcja(string s1);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISerwis/Funkcja1", ReplyAction="http://tempuri.org/ISerwis/Funkcja1Response")]
+        void Funkcja1(string s1);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISerwis/Funkcja", ReplyAction="http://tempuri.org/ISerwis/FunkcjaResponse")]
-        System.Threading.Tasks.Task FunkcjaAsync(string s1);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISerwis/Funkcja1", ReplyAction="http://tempuri.org/ISerwis/Funkcja1Response")]
+        System.Threading.Tasks.Task Funkcja1Async(string s1);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ISerwis/Funkcja2")]
         void Funkcja2(string s2);
@@ -55,12 +55,12 @@ namespace WcfServiceClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void Funkcja(string s1) {
-            base.Channel.Funkcja(s1);
+        public void Funkcja1(string s1) {
+            base.Channel.Funkcja1(s1);
         }
         
-        public System.Threading.Tasks.Task FunkcjaAsync(string s1) {
-            return base.Channel.FunkcjaAsync(s1);
+        public System.Threading.Tasks.Task Funkcja1Async(string s1) {
+            return base.Channel.Funkcja1Async(s1);
         }
         
         public void Funkcja2(string s2) {
