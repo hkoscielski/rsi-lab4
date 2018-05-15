@@ -23,9 +23,8 @@ namespace WcfStreamServiceClient
 
         private const int LIST = 1;
         private const int UPLOAD = 2;
-        private const int DOWNLOAD = 3;
-        //private const int REMOVE = 4;
-        private const int EXIT = 5;
+        private const int DOWNLOAD = 3;        
+        private const int EXIT = 4;
 
         /// <summary>
         /// Konstruktor klienta.
@@ -41,7 +40,6 @@ namespace WcfStreamServiceClient
         /// </summary>
         void RunClient()
         {
-
             bool _isExit = false;
             int _option;
 
@@ -53,17 +51,14 @@ namespace WcfStreamServiceClient
                 switch (_option)
                 {
                     case LIST:
-                        AddTranslation();
+                        GetListOfFiles();
                         break;
                     case UPLOAD:
-                        SearchTranslation();
+                        UploadFile();
                         break;
                     case DOWNLOAD:
-                        ModifyTranslation();
-                        break;
-                    //case REMOVE:
-                    //    RemoveTranslation();
-                    //    break;
+                        DownloadFile();
+                        break;                    
                     case EXIT:
                         _isExit = true;
                         break;
@@ -82,8 +77,7 @@ namespace WcfStreamServiceClient
             Console.WriteLine("Menu użytkownika:");
             Console.WriteLine("{0}. Wyświetl listę plików.", LIST);
             Console.WriteLine("{0}. Wyślij plik.", UPLOAD);
-            Console.WriteLine("{0}. Pobierz plik.", DOWNLOAD);
-            //Console.WriteLine("{0}. Usuń tłumaczenie", REMOVE);
+            Console.WriteLine("{0}. Pobierz plik.", DOWNLOAD);            
             Console.WriteLine("{0}. Wyjście.", EXIT);
         }
 
@@ -114,45 +108,73 @@ namespace WcfStreamServiceClient
             return _option;
         }
 
-        private void ListOfFiles()
-        {
-            //pobiera listę plików z opisami
-
+        private void GetListOfFiles()
+        {           
+           ResponseFileInfoMessage[] _filesInfo = this.client.GetFilesInfo();
+           if (_filesInfo.Length > 0)
+           {
+               Console.WriteLine("Pliki dostępne na serwerze:");
+               for (int i = 0; i < _filesInfo.Length; i++)
+               {
+                    Console.WriteLine("[{0}]. {1} - {2}", i, _filesInfo[i].filename, _filesInfo[i].description);
+               }
+           }
+           else
+           {
+               Console.WriteLine("Nie ma żadnych plików na serwerze");
+           }
         }
 
         private void UploadFile()
         {
-            string _directory = Path.Combine(Environment.CurrentDirectory, ".\\Uploads\\*");
-            string[] _files = Directory.GetFiles(_directory);
+            string _directory = Path.Combine(Environment.CurrentDirectory, ".\\Uploads\\*");            
+            string[] _files = Directory.GetFiles(_directory).Select(Path.GetFileName).ToArray();                        
 
-            for (int i = 0; i < _files.Length; i++)
+            if(_files.Length > 0)
             {
-                Console.WriteLine("[{0}]. {1}", i, _files[i]);
+                Console.WriteLine("Pliki do przesłania:");
+                for(int i = 0; i < _files.Length; i++)
+                {
+                    Console.WriteLine("[{0}]. {1}", i, _files[i]);
+                }
+                Console.Write("Podaj numer pliku, który chcesz przesłać: ");
+                int _fileIndex = ReadOption();
+                if (_fileIndex > _files.Length)
+                {
+                    Console.WriteLine("Nie ma pliku o tym indeksie!");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Podaj opis przesyłanego pliku:");
+                    string _description = Console.ReadLine();
+                             
+                    if (this.client.UploadFile(_files[_fileIndex], _description, new Stream()).uploadSuccess)
+                    {
+                        Console.WriteLine("Pomyślnie przesłano plik");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nie udało się przesłać pliku. Spróbuj ponownie później");
+                    }
+                }
             }
-            int _option = ReadOption();
-
-            if (_option > _files.Length - 1)
+            else
             {
-                Console.WriteLine("Nie ma pliku o tym indeksie!");
-                return;
-            }
-
-            //START PRZESYŁANIE PLIKU
-            Console.WriteLine("Podaj opis przesyłanego pliku:");
-            string _opis = Console.ReadLine();
-
-            
+                Console.WriteLine("Brak plików do przesłania!");
+            }            
         }
 
         private void DownloadFile()
         {
             //pobiera plik z serwera
             Console.WriteLine("Podaj nazwę pliku do pobrania.");
-            string _nazwa = Console.ReadLine();
-
-            ResponseFileMessage _stream = client.GetStream(_nazwa);
-            string _directory = Path.Combine(Environment.CurrentDirectory, ".\\Downloads\\", _nazwa);
-            SaveFile(_stream, _directory);
+            string _filename = Console.ReadLine();
+            Stream _data;
+            long _size;
+            string _description = this.client.GetFile(ref _filename, out _size, out _data);
+            string _directory = Path.Combine(Environment.CurrentDirectory, ".\\Downloads\\", _filename);
+            SaveFile(_data, _directory);
         }
 
         static void SaveFile(Stream instream, string filePath)
@@ -179,91 +201,7 @@ namespace WcfStreamServiceClient
             instream.Close();
             Console.WriteLine();
             Console.WriteLine("--> Plik {0} zapisany", filePath);
-        }
-
-
-        /// <summary>
-        /// Metoda pomocnicza odpowiadająca za interakcje użytkownika z programem 
-        /// pozwalająca na dodanie nowego tłumaczenia do słownika. 
-        /// </summary>
-        private void AddTranslation()
-        {
-            Console.WriteLine("Podaj polskie słowo:");
-            string _polishWord = Console.ReadLine();
-            Console.WriteLine("Podaj jego angielskie tłumaczenie:");
-            string _englishWord = Console.ReadLine();
-
-            if (this.client.AddTranslate(_polishWord, _englishWord))
-                Console.WriteLine("Pomyslnie dodano słowo");
-            else
-                Console.WriteLine("Tłumaczenie już istnieje");
-        }
-
-        /// <summary>
-        /// Metoda pomocnicza odpowiadająca za interakcje użytkownika z programem 
-        /// pozwalająca na wyszukanie tłumaczenia w słowniku.
-        /// </summary>
-        private void SearchTranslation()
-        {
-            Console.WriteLine("Podaj polskie słowo, które chcesz wyszukać:");
-            string _polishWord = Console.ReadLine();
-            string[] _translation = this.client.SearchTranslate(_polishWord);
-
-            foreach (string s in _translation)
-                Console.WriteLine(s);
-
-            if (_translation.Length == 0)
-                Console.WriteLine("Nie znaleziono tlumaczenia");
-
-        }
-
-        /// <summary>
-        /// Metoda pomocnicza odpowiadająca za interakcje użytkownika z programem 
-        /// pozwalająca na modyfikację tłumaczenia w słowniku.
-        /// </summary>
-        private void ModifyTranslation()
-        {
-            Console.WriteLine("Podaj polskie słowo, którego tłumaczenie chcesz zmodyfikować:");
-            string _polishWord = Console.ReadLine();
-            string[] _translation = this.client.SearchTranslate(_polishWord);
-            if (_translation.Length == 0)
-            {
-                Console.WriteLine("Nie znaleziono tlumaczenia");
-            }
-            else
-            {
-                Console.WriteLine("Podaj nowe tłumaczenie");
-                string _newTranslation = Console.ReadLine();
-                if (this.client.ModifyTranslate(_polishWord, _newTranslation))
-                {
-                    Console.WriteLine("Pomyślnie zmodyfikowano tłumaczenie");
-                }
-                else
-                {
-                    Console.WriteLine("Nie udało się zmienić tłumaczenia");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Metoda pomocnicza odpowiadająca za interakcje użytkownika z programem 
-        /// pozwalająca na usunięcie tłumaczenia ze słownika.
-        /// </summary>
-        private void RemoveTranslation()
-        {
-            Console.WriteLine("Podaj polskie słowo, które chcesz usunąć ze słownika:");
-            string _polishWord = Console.ReadLine();
-            string[] _translation = this.client.SearchTranslate(_polishWord);
-            if (_translation.Length == 0)
-            {
-                Console.WriteLine("Nie znaleziono tlumaczenia");
-            }
-            else
-            {
-                this.client.RemoveTranslate(_polishWord);
-                Console.WriteLine("Pomyślnie usunięto tłumaczenie");
-            }
-        }
+        }        
 
         /// <summary>
         /// Główna metoda klasy, która uruchamia program dla klienta.
