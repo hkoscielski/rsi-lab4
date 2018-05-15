@@ -10,11 +10,13 @@ namespace WcfStreamServiceContract
 {    
     [ServiceContract]
     public interface IStrumien
-    {
+    {        
         [OperationContract]
-        System.IO.Stream GetStream(string nazwa);
+        ResponseFileMessage GetFile(RequestFileMessage request);
         [OperationContract]
-        ResponseFileMessage GetMStream(RequestFileMessage request);
+        List<ResponseFileInfoMessage> GetFilesInfo();
+        [OperationContract]
+        ResponseUploadFileMessage UploadFile(RequestUploadFileMessage request);
     }
 
     [MessageContract]
@@ -25,13 +27,42 @@ namespace WcfStreamServiceContract
     }
 
     [MessageContract]
+    public class RequestUploadFileMessage
+    {
+        [MessageHeader]
+        public string nazwa;
+        [MessageHeader]
+        public string opis;
+        [MessageBodyMember]
+        public Stream dane;
+    }
+
+    [MessageContract]
+    public class ResponseUploadFileMessage
+    {
+        [MessageBodyMember]
+        public bool uploadSuccess;
+    }
+
+    [MessageContract]
     public class ResponseFileMessage
     {
         [MessageHeader]
         public string nazwa2;
         [MessageHeader]
         public long rozmiar;
+        [MessageHeader]
+        public string opis;
         [MessageBodyMember]
-        public Stream dane;
+        public Stream dane;        
+    }
+
+    [MessageContract]
+    public class ResponseFileInfoMessage
+    {
+        [MessageHeader]
+        public string nazwa;
+        [MessageBodyMember]
+        public string opis;
     }
 }
