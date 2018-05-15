@@ -12,11 +12,11 @@ namespace WcfStreamServiceContract
     {
         public ResponseFileMessage GetFile(RequestFileMessage request)
         {
-            ResponseFileMessage wynik = new ResponseFileMessage();
-            string nazwa = request.nazwa1;
+            ResponseFileMessage result = new ResponseFileMessage();
+            string filename = request.filename;
             FileStream myFile;
             Console.WriteLine("-->Wywolano GetMStream");
-            string filePath = Path.Combine(System.Environment.CurrentDirectory, ".\\" + nazwa);
+            string filePath = Path.Combine(System.Environment.CurrentDirectory, ".\\" + filename);
             //wyjatek na wypadek bledu otwarcia pliku
             try
             {
@@ -29,55 +29,80 @@ namespace WcfStreamServiceContract
                 throw ex;
             }
 
-            wynik.nazwa2 = "klient2.jpg";
-            wynik.rozmiar = myFile.Length;
-            wynik.dane = myFile;
-            return wynik;
+            result.filename = filePath;
+            result.size = myFile.Length;
+            result.data = myFile;
+            return result;
         }
 
-        public List<ResponseFileInfoMessage> GetFilesInfo()
+        public ResponseFileInfoMessage[] GetFilesInfo()
         {
             List<ResponseFileInfoMessage> results = new List<ResponseFileInfoMessage>();
             string mainPath = Path.Combine(System.Environment.CurrentDirectory, ".\\files\\");
             string path = mainPath + "*";
             //foreach (string filename in Directory.GetFiles(path).Except(Directory.GetFiles(path, "*_opis.txt")).Select(Path.GetFileName))
-            foreach (string filename in Directory.GetFiles(path).Except(Directory.GetFiles(mainPath, "*_opis.txt")).Select(Path.GetFileName))
+            foreach (string name in Directory.GetFiles(path).Except(Directory.GetFiles(mainPath, "*_opis.txt")).Select(Path.GetFileName))
             {
                 ResponseFileInfoMessage result = new ResponseFileInfoMessage
                 {
-                    nazwa = filename,
-                    opis = GetText(System.Environment.CurrentDirectory + "\\" + filename + "*_opis.txt")
+                    filename = name,
+                    description = GetText(System.Environment.CurrentDirectory + "\\" + name + "*_opis.txt")
                 };
             }
-            return results;        
+            return results.ToArray();        
         }
 
         public ResponseUploadFileMessage UploadFile(RequestUploadFileMessage request)
         {
             ResponseUploadFileMessage result = new ResponseUploadFileMessage();
-            string nazwa = request.nazwa;
-            FileStream myFile;
+            string name = request.filename;            
             Console.WriteLine("-->Wywolano UploadFile");
-            string filePath = Path.Combine(System.Environment.CurrentDirectory, ".\\files\\" + nazwa);
+            string filePath = Path.Combine(System.Environment.CurrentDirectory, ".\\files\\" + name);
             //wyjatek na wypadek bledu otwarcia pliku
             try
             {
-                myFile = File.OpenRead(filePath);
+                SaveFile(request.data, filePath);                 
+                result.uploadSuccess = true;
             }
             catch (IOException ex)
-            {
-                Console.WriteLine(string.Format("Wyjatek otwarcia pliku {0} :", filePath));
+            {                
                 Console.WriteLine(ex.ToString());
+                result.uploadSuccess = false;
                 throw ex;
             }
-
-            result.uploadSuccess = true;
-            return wynik;
+            
+            return result;
         }
 
-        private string GetText(string path)
+        private static string GetText(string path)
         {
             return string.Join(" ", File.ReadAllLines(path));            
         }
-   }
+
+        private static void SaveFile(Stream instream, string filePath)
+        {
+            const int bufferLength = 8192; //dlugosc bufora 8KB
+            int byteCount = 0; //licznik
+            int counter = 0; //licznik pomocniczy
+
+            byte[] buffer = new byte[bufferLength];
+            Console.WriteLine("--> Zapisuje plik {0}", filePath);
+            FileStream outstream = File.Open(filePath, FileMode.Create, FileAccess.Write);
+
+            //zapisywanie danych porcjami
+            while ((counter = instream.Read(buffer, 0, bufferLength)) > 0)
+            {
+                outstream.Write(buffer, 0, counter);
+                Console.Write(".{0}", counter); //wypisywanie info po kazdej czesci
+                byteCount += counter;
+            }
+            Console.WriteLine();
+            Console.WriteLine("Zapisano {0} bajtow", byteCount);
+
+            outstream.Close();
+            instream.Close();
+            Console.WriteLine();
+            Console.WriteLine("--> Plik {0} zapisany", filePath);
+        }
+    }
 }

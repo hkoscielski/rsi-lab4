@@ -9,24 +9,94 @@
 //------------------------------------------------------------------------------
 
 namespace WcfStreamServiceClient.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ResponseFileInfoMessage", Namespace="http://schemas.datacontract.org/2004/07/WcfStreamServiceContract")]
+    [System.SerializableAttribute()]
+    public partial class ResponseFileInfoMessage : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string descriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string filenameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string description {
+            get {
+                return this.descriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string filename {
+            get {
+                return this.filenameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.filenameField, value) != true)) {
+                    this.filenameField = value;
+                    this.RaisePropertyChanged("filename");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IStrumien")]
     public interface IStrumien {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetStream", ReplyAction="http://tempuri.org/IStrumien/GetStreamResponse")]
-        System.IO.Stream GetStream(string nazwa);
+        // CODEGEN: Generating message contract since the wrapper name (RequestFileMessage) of message RequestFileMessage does not match the default value (GetFile)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetFile", ReplyAction="http://tempuri.org/IStrumien/GetFileResponse")]
+        WcfStreamServiceClient.ServiceReference1.ResponseFileMessage GetFile(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetStream", ReplyAction="http://tempuri.org/IStrumien/GetStreamResponse")]
-        System.Threading.Tasks.Task<System.IO.Stream> GetStreamAsync(string nazwa);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetFile", ReplyAction="http://tempuri.org/IStrumien/GetFileResponse")]
+        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> GetFileAsync(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request);
         
-        // CODEGEN: Generating message contract since the wrapper name (RequestFileMessage) of message RequestFileMessage does not match the default value (GetMStream)
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetMStream", ReplyAction="http://tempuri.org/IStrumien/GetMStreamResponse")]
-        WcfStreamServiceClient.ServiceReference1.ResponseFileMessage GetMStream(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetFilesInfo", ReplyAction="http://tempuri.org/IStrumien/GetFilesInfoResponse")]
+        WcfStreamServiceClient.ServiceReference1.ResponseFileInfoMessage[] GetFilesInfo();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetMStream", ReplyAction="http://tempuri.org/IStrumien/GetMStreamResponse")]
-        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> GetMStreamAsync(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/GetFilesInfo", ReplyAction="http://tempuri.org/IStrumien/GetFilesInfoResponse")]
+        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileInfoMessage[]> GetFilesInfoAsync();
+        
+        // CODEGEN: Generating message contract since the wrapper name (RequestUploadFileMessage) of message RequestUploadFileMessage does not match the default value (UploadFile)
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/UploadFile", ReplyAction="http://tempuri.org/IStrumien/UploadFileResponse")]
+        WcfStreamServiceClient.ServiceReference1.ResponseUploadFileMessage UploadFile(WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IStrumien/UploadFile", ReplyAction="http://tempuri.org/IStrumien/UploadFileResponse")]
+        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseUploadFileMessage> UploadFileAsync(WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -36,13 +106,13 @@ namespace WcfStreamServiceClient.ServiceReference1 {
     public partial class RequestFileMessage {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public string nazwa1;
+        public string filename;
         
         public RequestFileMessage() {
         }
         
-        public RequestFileMessage(string nazwa1) {
-            this.nazwa1 = nazwa1;
+        public RequestFileMessage(string filename) {
+            this.filename = filename;
         }
     }
     
@@ -53,21 +123,67 @@ namespace WcfStreamServiceClient.ServiceReference1 {
     public partial class ResponseFileMessage {
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public string nazwa2;
+        public string description;
         
         [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
-        public long rozmiar;
+        public string filename;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public long size;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public System.IO.Stream dane;
+        public System.IO.Stream data;
         
         public ResponseFileMessage() {
         }
         
-        public ResponseFileMessage(string nazwa2, long rozmiar, System.IO.Stream dane) {
-            this.nazwa2 = nazwa2;
-            this.rozmiar = rozmiar;
-            this.dane = dane;
+        public ResponseFileMessage(string description, string filename, long size, System.IO.Stream data) {
+            this.description = description;
+            this.filename = filename;
+            this.size = size;
+            this.data = data;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="RequestUploadFileMessage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class RequestUploadFileMessage {
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public string description;
+        
+        [System.ServiceModel.MessageHeaderAttribute(Namespace="http://tempuri.org/")]
+        public string filename;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public System.IO.Stream data;
+        
+        public RequestUploadFileMessage() {
+        }
+        
+        public RequestUploadFileMessage(string description, string filename, System.IO.Stream data) {
+            this.description = description;
+            this.filename = filename;
+            this.data = data;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="ResponseUploadFileMessage", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class ResponseUploadFileMessage {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public bool uploadSuccess;
+        
+        public ResponseUploadFileMessage() {
+        }
+        
+        public ResponseUploadFileMessage(bool uploadSuccess) {
+            this.uploadSuccess = uploadSuccess;
         }
     }
     
@@ -98,37 +214,65 @@ namespace WcfStreamServiceClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public System.IO.Stream GetStream(string nazwa) {
-            return base.Channel.GetStream(nazwa);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WcfStreamServiceClient.ServiceReference1.ResponseFileMessage WcfStreamServiceClient.ServiceReference1.IStrumien.GetFile(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request) {
+            return base.Channel.GetFile(request);
         }
         
-        public System.Threading.Tasks.Task<System.IO.Stream> GetStreamAsync(string nazwa) {
-            return base.Channel.GetStreamAsync(nazwa);
+        public string GetFile(ref string filename, out long size, out System.IO.Stream data) {
+            WcfStreamServiceClient.ServiceReference1.RequestFileMessage inValue = new WcfStreamServiceClient.ServiceReference1.RequestFileMessage();
+            inValue.filename = filename;
+            WcfStreamServiceClient.ServiceReference1.ResponseFileMessage retVal = ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).GetFile(inValue);
+            filename = retVal.filename;
+            size = retVal.size;
+            data = retVal.data;
+            return retVal.description;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WcfStreamServiceClient.ServiceReference1.ResponseFileMessage WcfStreamServiceClient.ServiceReference1.IStrumien.GetMStream(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request) {
-            return base.Channel.GetMStream(request);
+        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> WcfStreamServiceClient.ServiceReference1.IStrumien.GetFileAsync(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request) {
+            return base.Channel.GetFileAsync(request);
         }
         
-        public string GetMStream(string nazwa1, out long rozmiar, out System.IO.Stream dane) {
+        public System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> GetFileAsync(string filename) {
             WcfStreamServiceClient.ServiceReference1.RequestFileMessage inValue = new WcfStreamServiceClient.ServiceReference1.RequestFileMessage();
-            inValue.nazwa1 = nazwa1;
-            WcfStreamServiceClient.ServiceReference1.ResponseFileMessage retVal = ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).GetMStream(inValue);
-            rozmiar = retVal.rozmiar;
-            dane = retVal.dane;
-            return retVal.nazwa2;
+            inValue.filename = filename;
+            return ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).GetFileAsync(inValue);
+        }
+        
+        public WcfStreamServiceClient.ServiceReference1.ResponseFileInfoMessage[] GetFilesInfo() {
+            return base.Channel.GetFilesInfo();
+        }
+        
+        public System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileInfoMessage[]> GetFilesInfoAsync() {
+            return base.Channel.GetFilesInfoAsync();
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> WcfStreamServiceClient.ServiceReference1.IStrumien.GetMStreamAsync(WcfStreamServiceClient.ServiceReference1.RequestFileMessage request) {
-            return base.Channel.GetMStreamAsync(request);
+        WcfStreamServiceClient.ServiceReference1.ResponseUploadFileMessage WcfStreamServiceClient.ServiceReference1.IStrumien.UploadFile(WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage request) {
+            return base.Channel.UploadFile(request);
         }
         
-        public System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseFileMessage> GetMStreamAsync(string nazwa1) {
-            WcfStreamServiceClient.ServiceReference1.RequestFileMessage inValue = new WcfStreamServiceClient.ServiceReference1.RequestFileMessage();
-            inValue.nazwa1 = nazwa1;
-            return ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).GetMStreamAsync(inValue);
+        public bool UploadFile(string description, string filename, System.IO.Stream data) {
+            WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage inValue = new WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage();
+            inValue.description = description;
+            inValue.filename = filename;
+            inValue.data = data;
+            WcfStreamServiceClient.ServiceReference1.ResponseUploadFileMessage retVal = ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).UploadFile(inValue);
+            return retVal.uploadSuccess;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseUploadFileMessage> WcfStreamServiceClient.ServiceReference1.IStrumien.UploadFileAsync(WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage request) {
+            return base.Channel.UploadFileAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WcfStreamServiceClient.ServiceReference1.ResponseUploadFileMessage> UploadFileAsync(string description, string filename, System.IO.Stream data) {
+            WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage inValue = new WcfStreamServiceClient.ServiceReference1.RequestUploadFileMessage();
+            inValue.description = description;
+            inValue.filename = filename;
+            inValue.data = data;
+            return ((WcfStreamServiceClient.ServiceReference1.IStrumien)(this)).UploadFileAsync(inValue);
         }
     }
 }

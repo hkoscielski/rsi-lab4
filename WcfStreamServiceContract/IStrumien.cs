@@ -14,7 +14,7 @@ namespace WcfStreamServiceContract
         [OperationContract]
         ResponseFileMessage GetFile(RequestFileMessage request);
         [OperationContract]
-        List<ResponseFileInfoMessage> GetFilesInfo();
+        ResponseFileInfoMessage[] GetFilesInfo();
         [OperationContract]
         ResponseUploadFileMessage UploadFile(RequestUploadFileMessage request);
     }
@@ -23,18 +23,18 @@ namespace WcfStreamServiceContract
     public class RequestFileMessage
     {
         [MessageBodyMember]
-        public string nazwa1;
+        public string filename;
     }
 
     [MessageContract]
     public class RequestUploadFileMessage
     {
         [MessageHeader]
-        public string nazwa;
+        public string filename;
         [MessageHeader]
-        public string opis;
+        public string description;
         [MessageBodyMember]
-        public Stream dane;
+        public Stream data;
     }
 
     [MessageContract]
@@ -48,21 +48,21 @@ namespace WcfStreamServiceContract
     public class ResponseFileMessage
     {
         [MessageHeader]
-        public string nazwa2;
+        public string filename;
         [MessageHeader]
-        public long rozmiar;
+        public long size;
         [MessageHeader]
-        public string opis;
+        public string description;
         [MessageBodyMember]
-        public Stream dane;        
+        public Stream data;        
     }
 
     [MessageContract]
     public class ResponseFileInfoMessage
     {
         [MessageHeader]
-        public string nazwa;
+        public string filename;
         [MessageBodyMember]
-        public string opis;
+        public string description;
     }
 }
