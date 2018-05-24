@@ -111,12 +111,13 @@ namespace WcfStreamServiceClient
         private void GetListOfFiles()
         {           
            ResponseFileInfoMessage[] _filesInfo = this.client.GetFilesInfo();
+            Console.WriteLine("Pomyslnie pobrano liste plikow");
            if (_filesInfo.Length > 0)
            {
                Console.WriteLine("Pliki dostępne na serwerze:");
                for (int i = 0; i < _filesInfo.Length; i++)
                {
-                    Console.WriteLine("[{0}]. {1} - {2}", i, _filesInfo[i].filename, _filesInfo[i].description);
+                    Console.WriteLine("[{0}]. {1} - {2}", i + 1, _filesInfo[i].filename, _filesInfo[i].description);
                }
            }
            else
@@ -127,15 +128,15 @@ namespace WcfStreamServiceClient
 
         private void UploadFile()
         {
-            string _directory = Path.Combine(Environment.CurrentDirectory, ".\\Uploads\\*");            
-            string[] _files = Directory.GetFiles(_directory).Select(Path.GetFileName).ToArray();                        
+            string _directory = Path.Combine(Environment.CurrentDirectory, "Uploads\\");            
+            string[] _files = Directory.GetFiles(_directory).ToArray();                        
 
             if(_files.Length > 0)
             {
                 Console.WriteLine("Pliki do przesłania:");
                 for(int i = 0; i < _files.Length; i++)
                 {
-                    Console.WriteLine("[{0}]. {1}", i, _files[i]);
+                    Console.WriteLine("[{0}]. {1}", i, Path.GetFileName(_files[i]));
                 }
                 Console.Write("Podaj numer pliku, który chcesz przesłać: ");
                 int _fileIndex = ReadOption();
@@ -148,8 +149,9 @@ namespace WcfStreamServiceClient
                 {
                     Console.WriteLine("Podaj opis przesyłanego pliku:");
                     string _description = Console.ReadLine();
-                             
-                    if (this.client.UploadFile(_files[_fileIndex], _description, new Stream()).uploadSuccess)
+                    Stream stream = FileToStream(_files[_fileIndex]);         
+                    
+                    if (this.client.UploadFile(_description, Path.GetFileName(_files[_fileIndex]), stream))                    
                     {
                         Console.WriteLine("Pomyślnie przesłano plik");
                     }
@@ -173,7 +175,9 @@ namespace WcfStreamServiceClient
             Stream _data;
             long _size;
             string _description = this.client.GetFile(ref _filename, out _size, out _data);
-            string _directory = Path.Combine(Environment.CurrentDirectory, ".\\Downloads\\", _filename);
+            Console.WriteLine("Pomyslnie pobrano plik");
+            string _directory = Path.Combine(Environment.CurrentDirectory, "Downloads\\" + _filename);
+            Console.WriteLine("Plik zostanie zapisany w sciezce: {0}", _directory);
             SaveFile(_data, _directory);
         }
 
@@ -202,6 +206,11 @@ namespace WcfStreamServiceClient
             Console.WriteLine();
             Console.WriteLine("--> Plik {0} zapisany", filePath);
         }        
+
+        static Stream FileToStream(string filePath)
+        {            
+            return File.Open(filePath, FileMode.Open, FileAccess.Read);
+        }
 
         /// <summary>
         /// Główna metoda klasy, która uruchamia program dla klienta.

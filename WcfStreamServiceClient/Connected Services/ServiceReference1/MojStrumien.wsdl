@@ -5,14 +5,9 @@
       <xsd:import schemaLocation="http://localhost:50004/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:50004/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:50004/?xsd=xsd2" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:50004/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfStreamServiceContract" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IStrumien_GetStream_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetStream" />
-  </wsdl:message>
-  <wsdl:message name="IStrumien_GetStream_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetStreamResponse" />
-  </wsdl:message>
   <wsdl:message name="RequestFileMessage">
     <wsdl:part name="parameters" element="tns:RequestFileMessage" />
   </wsdl:message>
@@ -20,23 +15,56 @@
     <wsdl:part name="parameters" element="tns:ResponseFileMessage" />
   </wsdl:message>
   <wsdl:message name="ResponseFileMessage_Headers">
-    <wsdl:part name="nazwa2" element="tns:nazwa2" />
-    <wsdl:part name="rozmiar" element="tns:rozmiar" />
+    <wsdl:part name="description" element="tns:description" />
+    <wsdl:part name="filename" element="tns:filename" />
+    <wsdl:part name="size" element="tns:size" />
+  </wsdl:message>
+  <wsdl:message name="IStrumien_GetFilesInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilesInfo" />
+  </wsdl:message>
+  <wsdl:message name="IStrumien_GetFilesInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilesInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestUploadFileMessage">
+    <wsdl:part name="parameters" element="tns:RequestUploadFileMessage" />
+  </wsdl:message>
+  <wsdl:message name="RequestUploadFileMessage_Headers">
+    <wsdl:part name="description" element="tns:description" />
+    <wsdl:part name="filename" element="tns:filename" />
+  </wsdl:message>
+  <wsdl:message name="ResponseUploadFileMessage">
+    <wsdl:part name="parameters" element="tns:ResponseUploadFileMessage" />
   </wsdl:message>
   <wsdl:portType name="IStrumien">
-    <wsdl:operation name="GetStream">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStrumien/GetStream" message="tns:IStrumien_GetStream_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStrumien/GetStreamResponse" message="tns:IStrumien_GetStream_OutputMessage" />
+    <wsdl:operation name="GetFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStrumien/GetFile" name="RequestFileMessage" message="tns:RequestFileMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStrumien/GetFileResponse" name="ResponseFileMessage" message="tns:ResponseFileMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetMStream">
-      <wsdl:input wsaw:Action="http://tempuri.org/IStrumien/GetMStream" name="RequestFileMessage" message="tns:RequestFileMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IStrumien/GetMStreamResponse" name="ResponseFileMessage" message="tns:ResponseFileMessage" />
+    <wsdl:operation name="GetFilesInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStrumien/GetFilesInfo" message="tns:IStrumien_GetFilesInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStrumien/GetFilesInfoResponse" message="tns:IStrumien_GetFilesInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IStrumien/UploadFile" name="RequestUploadFileMessage" message="tns:RequestUploadFileMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IStrumien/UploadFileResponse" name="ResponseUploadFileMessage" message="tns:ResponseUploadFileMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IStrumien" type="tns:IStrumien">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetStream">
-      <soap:operation soapAction="http://tempuri.org/IStrumien/GetStream" style="document" />
+    <wsdl:operation name="GetFile">
+      <soap:operation soapAction="http://tempuri.org/IStrumien/GetFile" style="document" />
+      <wsdl:input name="RequestFileMessage">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ResponseFileMessage">
+        <soap:header message="tns:ResponseFileMessage_Headers" part="description" use="literal" />
+        <soap:header message="tns:ResponseFileMessage_Headers" part="filename" use="literal" />
+        <soap:header message="tns:ResponseFileMessage_Headers" part="size" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilesInfo">
+      <soap:operation soapAction="http://tempuri.org/IStrumien/GetFilesInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -44,14 +72,14 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetMStream">
-      <soap:operation soapAction="http://tempuri.org/IStrumien/GetMStream" style="document" />
-      <wsdl:input name="RequestFileMessage">
+    <wsdl:operation name="UploadFile">
+      <soap:operation soapAction="http://tempuri.org/IStrumien/UploadFile" style="document" />
+      <wsdl:input name="RequestUploadFileMessage">
+        <soap:header message="tns:RequestUploadFileMessage_Headers" part="description" use="literal" />
+        <soap:header message="tns:RequestUploadFileMessage_Headers" part="filename" use="literal" />
         <soap:body use="literal" />
       </wsdl:input>
-      <wsdl:output name="ResponseFileMessage">
-        <soap:header message="tns:ResponseFileMessage_Headers" part="nazwa2" use="literal" />
-        <soap:header message="tns:ResponseFileMessage_Headers" part="rozmiar" use="literal" />
+      <wsdl:output name="ResponseUploadFileMessage">
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

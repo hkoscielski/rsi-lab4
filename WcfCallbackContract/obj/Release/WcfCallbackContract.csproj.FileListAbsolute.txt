@@ -4,3 +4,4 @@ G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfCallba
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfCallbackContract\obj\Release\WcfCallbackContract.csproj.CoreCompileInputs.cache
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfCallbackContract\obj\Release\WcfCallbackContract.dll
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfCallbackContract\obj\Release\WcfCallbackContract.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfCallbackContract\obj\Release\WcfCallbackContract.csprojResolveAssemblyReference.cache

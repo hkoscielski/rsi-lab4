@@ -4,3 +4,4 @@ G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStream
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceContract\obj\Release\WcfStreamServiceContract.csproj.CoreCompileInputs.cache
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceContract\obj\Release\WcfStreamServiceContract.dll
 G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceContract\obj\Release\WcfStreamServiceContract.pdb
+G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfStreamServiceContract\obj\Release\WcfStreamServiceContract.csprojResolveAssemblyReference.cache

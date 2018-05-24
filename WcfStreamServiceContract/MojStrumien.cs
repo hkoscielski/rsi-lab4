@@ -10,13 +10,16 @@ namespace WcfStreamServiceContract
 {
     public class MojStrumien : IStrumien
     {
+        private const string DESCRIPTION_FILE_EXTENSION = "_opis.txt";
+
         public ResponseFileMessage GetFile(RequestFileMessage request)
         {
             ResponseFileMessage result = new ResponseFileMessage();
             string filename = request.filename;
             FileStream myFile;
             Console.WriteLine("-->Wywolano GetMStream");
-            string filePath = Path.Combine(System.Environment.CurrentDirectory, ".\\" + filename);
+            string filePath = Path.Combine(System.Environment.CurrentDirectory, "files\\" + filename);
+            Console.WriteLine("filePath: {0}", filePath);
             //wyjatek na wypadek bledu otwarcia pliku
             try
             {
@@ -29,7 +32,7 @@ namespace WcfStreamServiceContract
                 throw ex;
             }
 
-            result.filename = filePath;
+            result.filename = filename;
             result.size = myFile.Length;
             result.data = myFile;
             return result;
@@ -38,30 +41,37 @@ namespace WcfStreamServiceContract
         public ResponseFileInfoMessage[] GetFilesInfo()
         {
             List<ResponseFileInfoMessage> results = new List<ResponseFileInfoMessage>();
-            string mainPath = Path.Combine(System.Environment.CurrentDirectory, ".\\files\\");
+            string mainPath = Path.Combine(System.Environment.CurrentDirectory, "files\\");
+            Console.WriteLine("mainPath: {0}", mainPath);
             string path = mainPath + "*";
             //foreach (string filename in Directory.GetFiles(path).Except(Directory.GetFiles(path, "*_opis.txt")).Select(Path.GetFileName))
-            foreach (string name in Directory.GetFiles(path).Except(Directory.GetFiles(mainPath, "*_opis.txt")).Select(Path.GetFileName))
+            Console.WriteLine("Liczba plikow: {0}", Directory.GetFiles(mainPath).Select(Path.GetFileName));
+            foreach (string name in Directory.GetFiles(mainPath).Select(Path.GetFileName))
             {
+                Console.WriteLine("name: {0}", name);
+                Console.WriteLine("descname: {0}", Path.Combine(System.Environment.CurrentDirectory, "descriptions\\" + Path.GetFileNameWithoutExtension(name) + DESCRIPTION_FILE_EXTENSION));
+
                 ResponseFileInfoMessage result = new ResponseFileInfoMessage
                 {
                     filename = name,
-                    description = GetText(System.Environment.CurrentDirectory + "\\" + name + "*_opis.txt")
+                    description = GetText(Path.Combine(System.Environment.CurrentDirectory, "descriptions\\" + Path.GetFileNameWithoutExtension(name) + DESCRIPTION_FILE_EXTENSION))
                 };
+                results.Add(result);
             }
             return results.ToArray();        
         }
 
         public ResponseUploadFileMessage UploadFile(RequestUploadFileMessage request)
         {
-            ResponseUploadFileMessage result = new ResponseUploadFileMessage();
-            string name = request.filename;            
+            ResponseUploadFileMessage result = new ResponseUploadFileMessage();            
             Console.WriteLine("-->Wywolano UploadFile");
-            string filePath = Path.Combine(System.Environment.CurrentDirectory, ".\\files\\" + name);
+            string filePath = Path.Combine(System.Environment.CurrentDirectory, "files\\" + request.filename);
+            string descriptionPath = Path.Combine(System.Environment.CurrentDirectory, "descriptions\\" + Path.GetFileNameWithoutExtension(request.filename) + DESCRIPTION_FILE_EXTENSION);
             //wyjatek na wypadek bledu otwarcia pliku
             try
             {
-                SaveFile(request.data, filePath);                 
+                SaveFile(request.data, filePath);
+                SaveText(request.description, descriptionPath);
                 result.uploadSuccess = true;
             }
             catch (IOException ex)
@@ -77,6 +87,11 @@ namespace WcfStreamServiceContract
         private static string GetText(string path)
         {
             return string.Join(" ", File.ReadAllLines(path));            
+        }
+
+        private static void SaveText(string text, string path)
+        {
+            File.WriteAllText(path, text);
         }
 
         private static void SaveFile(Stream instream, string filePath)
