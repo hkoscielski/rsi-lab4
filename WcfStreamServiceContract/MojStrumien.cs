@@ -41,16 +41,10 @@ namespace WcfStreamServiceContract
         public ResponseFileInfoMessage[] GetFilesInfo()
         {
             List<ResponseFileInfoMessage> results = new List<ResponseFileInfoMessage>();
-            string mainPath = Path.Combine(System.Environment.CurrentDirectory, "files\\");
-            Console.WriteLine("mainPath: {0}", mainPath);
-            string path = mainPath + "*";
-            //foreach (string filename in Directory.GetFiles(path).Except(Directory.GetFiles(path, "*_opis.txt")).Select(Path.GetFileName))
-            Console.WriteLine("Liczba plikow: {0}", Directory.GetFiles(mainPath).Select(Path.GetFileName));
+            string mainPath = Path.Combine(System.Environment.CurrentDirectory, "files\\");                 
+            
             foreach (string name in Directory.GetFiles(mainPath).Select(Path.GetFileName))
-            {
-                Console.WriteLine("name: {0}", name);
-                Console.WriteLine("descname: {0}", Path.Combine(System.Environment.CurrentDirectory, "descriptions\\" + Path.GetFileNameWithoutExtension(name) + DESCRIPTION_FILE_EXTENSION));
-
+            {                
                 ResponseFileInfoMessage result = new ResponseFileInfoMessage
                 {
                     filename = name,

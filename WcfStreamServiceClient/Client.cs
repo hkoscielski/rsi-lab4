@@ -176,8 +176,7 @@ namespace WcfStreamServiceClient
             long _size;
             string _description = this.client.GetFile(ref _filename, out _size, out _data);
             Console.WriteLine("Pomyslnie pobrano plik");
-            string _directory = Path.Combine(Environment.CurrentDirectory, "Downloads\\" + _filename);
-            Console.WriteLine("Plik zostanie zapisany w sciezce: {0}", _directory);
+            string _directory = Path.Combine(Environment.CurrentDirectory, "Downloads\\" + _filename);            
             SaveFile(_data, _directory);
         }
 
