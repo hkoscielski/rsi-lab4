@@ -1,6 +1,0 @@
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceContract\bin\Release\WcfServiceContract.dll.config
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceContract\bin\Release\WcfServiceContract.dll
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceContract\bin\Release\WcfServiceContract.pdb
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceContract\obj\Release\WcfServiceContract.csproj.CoreCompileInputs.cache
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceContract\obj\Release\WcfServiceContract.dll
-G:\Programowanie\Microsoft Visual Studio\Projects\RSI\LAB4\WcfService2\WcfServiceContract\obj\Release\WcfServiceContract.pdb

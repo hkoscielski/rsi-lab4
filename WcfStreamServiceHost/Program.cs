@@ -14,7 +14,7 @@ namespace WcfStreamServiceHost
         static void Main(string[] args)
         {
             // Krok 1 Utworz URI dla bazowego adresu serwisu.
-            Uri baseAddress = new Uri("http://localhost:50004/");
+            Uri baseAddress = new Uri("http://192.168.43.82:50004/");
 
             // Krok 2 Utworz instancje serwisu.
             ServiceHost mojHost = new ServiceHost(typeof(MojStrumien), baseAddress);

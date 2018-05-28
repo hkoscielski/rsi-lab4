@@ -3,14 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceContract", "WcfServiceContract\WcfServiceContract.csproj", "{2B9DC04B-94C1-4CCE-87B1-B5F6C0B789FC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceHost", "WcfServiceHost\WcfServiceHost.csproj", "{F8E5FEDC-4C99-486C-A03A-60972AE15B77}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfServiceClient", "WcfServiceClient\WcfServiceClient.csproj", "{A921FD8A-9EC1-4BBC-B488-DC2398595C89}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfCallbackContract", "WcfCallbackContract\WcfCallbackContract.csproj", "{B39B3E7E-917A-4828-A971-0AC27FB66759}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfStreamServiceContract", "WcfStreamServiceContract\WcfStreamServiceContract.csproj", "{64737C60-72E2-4091-94D2-65AFB18DE99E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfStreamServiceHost", "WcfStreamServiceHost\WcfStreamServiceHost.csproj", "{517F292E-2F6C-4D0A-8C84-5A0BF1B5039F}"
@@ -23,22 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B9DC04B-94C1-4CCE-87B1-B5F6C0B789FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9DC04B-94C1-4CCE-87B1-B5F6C0B789FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B9DC04B-94C1-4CCE-87B1-B5F6C0B789FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B9DC04B-94C1-4CCE-87B1-B5F6C0B789FC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F8E5FEDC-4C99-486C-A03A-60972AE15B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8E5FEDC-4C99-486C-A03A-60972AE15B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8E5FEDC-4C99-486C-A03A-60972AE15B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8E5FEDC-4C99-486C-A03A-60972AE15B77}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A921FD8A-9EC1-4BBC-B488-DC2398595C89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A921FD8A-9EC1-4BBC-B488-DC2398595C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A921FD8A-9EC1-4BBC-B488-DC2398595C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A921FD8A-9EC1-4BBC-B488-DC2398595C89}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B39B3E7E-917A-4828-A971-0AC27FB66759}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B39B3E7E-917A-4828-A971-0AC27FB66759}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B39B3E7E-917A-4828-A971-0AC27FB66759}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B39B3E7E-917A-4828-A971-0AC27FB66759}.Release|Any CPU.Build.0 = Release|Any CPU
 		{64737C60-72E2-4091-94D2-65AFB18DE99E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64737C60-72E2-4091-94D2-65AFB18DE99E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64737C60-72E2-4091-94D2-65AFB18DE99E}.Release|Any CPU.ActiveCfg = Release|Any CPU
