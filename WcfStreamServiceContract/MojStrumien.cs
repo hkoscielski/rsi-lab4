@@ -8,14 +8,14 @@ using System.Text;
 
 /// <summary>
 /// Obszar nazw dotyczący projektu, który zawiera interfejs kontraktu serwisu i jego implementację.
-/// Autor: 228141, Konrad Jakubowski.
+/// Autor: 228172, Hubert Kościelski.
 /// </summary>
 namespace WcfStreamServiceContract
 {
     /// <summary>
     /// Klasa implementująca interfejs 'IStrumien'. 
     /// Obsługuje wszystkie metody zawarte w interfejsie.
-    /// Autor: 228141, Konrad Jakubowski.
+    /// Autor: 228172, Hubert Kościelski.
     /// </summary>
     public class MojStrumien : IStrumien
     {

@@ -1,0 +1,198 @@
+\hypertarget{class_wcf_stream_service_client_1_1_client}{}\section{Wcf\+Stream\+Service\+Client.\+Client Class Reference}
+\label{class_wcf_stream_service_client_1_1_client}\index{Wcf\+Stream\+Service\+Client.\+Client@{Wcf\+Stream\+Service\+Client.\+Client}}
+
+
+Klasa klienta. Pozwala na interakcje z użytkownikiem udostępniając mu tekstowe menu z możliwymi operacjami do wyboru.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_wcf_stream_service_client_1_1_client_a04a60e2a76ab51077d00c0219e4ffc3e}{Client} (\hyperlink{class_wcf_stream_service_client_1_1_service_reference1_1_1_strumien_client}{Strumien\+Client} client)
+\begin{DoxyCompactList}\small\item\em Konstruktor klienta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_wcf_stream_service_client_1_1_client_af48e3d7be49a0136ad495035415e799f}{Run\+Client} ()
+\begin{DoxyCompactList}\small\item\em Metoda stanowiąca główną pętlę programu klienta. Wyświetla dostępne opcje dla użytkownika (poprzez wywołanie pomocniczej metody). Zarządza wywoływaniem pomocniczych metod. \end{DoxyCompactList}\item 
+void \hyperlink{class_wcf_stream_service_client_1_1_client_a448069d7619faa8b146c87a734fbb8a6}{Show\+Options} ()
+\begin{DoxyCompactList}\small\item\em Metoda pomocnicza odpowiedzialna za wyświetlenie w konsoli dostępnych operacji do wyboru dla użytkownika. \end{DoxyCompactList}\item 
+int \hyperlink{class_wcf_stream_service_client_1_1_client_a2e7604484e1dc3f97b475c6849be1e38}{Read\+Option} ()
+\begin{DoxyCompactList}\small\item\em Metoda pomocnicza odpowiadająca za interakcję użytkownika z programem pozwalająca na podanie przez użytkownika numeru opcji w menu. Podawanie opcji następuje dopóki użytkownik nie wprowadzi liczby. \end{DoxyCompactList}\item 
+void \hyperlink{class_wcf_stream_service_client_1_1_client_a7ad1660ea61123c161159cb54d863021}{Get\+List\+Of\+Files} ()
+\begin{DoxyCompactList}\small\item\em Metoda wykorzystująca Strumień w celu pobrania danych nt. listy plików przechowywanych na serwerze. Po pobraniu drukuje na ekranie konsoli pobraną listę plików lub informuje o braku plików. \end{DoxyCompactList}\item 
+void \hyperlink{class_wcf_stream_service_client_1_1_client_a2262b00b6486bc8db00049dc0d156895}{Upload\+File} ()
+\begin{DoxyCompactList}\small\item\em Metoda wysyłająca wybrany plik na serwer. Wpierw pobiera listę plików z folderu \textquotesingle{}Uploads\textquotesingle{}, następnie umożliwia użytkownikowi wybranie 1 z przechowywanych tam plików. Po wybraniu pliku, użytkownik ma możliwość podania opisu pliku. Następnie metoda wykorzystuje Strumień w celu wysłania pliku na serwer. Po próbie przesłania informuje użytkownika o powodzeniu operacji. \end{DoxyCompactList}\item 
+void \hyperlink{class_wcf_stream_service_client_1_1_client_a8344bf9cc6cdb22a11d6f86240d7ed3d}{Download\+File} ()
+\begin{DoxyCompactList}\small\item\em Metoda umożliwiająca pobranie plików z serwera. Pobranie pliku odbywa się poprzez podanie przez użytkownika nazwy pliku, który chce pobrać. Następnie wysyła do serwera żądanie o pobranie podanego pliku. Po pobraniu informuje o tym użytkownika, następnie wywołuje metodę pomocniczą w celu zapisania pliku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_wcf_stream_service_client_1_1_client_ac54e9d85bbd737536ca281cedfc8d87c}{Save\+File} (Stream instream, string file\+Path)
+\begin{DoxyCompactList}\small\item\em Metoda pomocnicza umożliwiająca zapisanie pliku ze strumienia do wskazanej ścieżki. Zapisuje plik porcjami. \end{DoxyCompactList}\item 
+static Stream \hyperlink{class_wcf_stream_service_client_1_1_client_a9a86790db59d7ada6ba7c67d470904dc}{File\+To\+Stream} (string file\+Path)
+\begin{DoxyCompactList}\small\item\em Metoda pomocnicza mająca za zadanie odczytać plik ze wskazanej ścieżki i zwrócić ten plik w postaci Strumienia. \end{DoxyCompactList}\item 
+static void \hyperlink{class_wcf_stream_service_client_1_1_client_a6d53a06adb60957a2c84413f13d54b4f}{Main} (string\mbox{[}$\,$\mbox{]} args)
+\begin{DoxyCompactList}\small\item\em Główna metoda klasy, która uruchamia główną pętlę programu klienta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_ad9b590e2d4ba3356526232e9d86c318a}\label{class_wcf_stream_service_client_1_1_client_ad9b590e2d4ba3356526232e9d86c318a}} 
+\hyperlink{class_wcf_stream_service_client_1_1_service_reference1_1_1_strumien_client}{Strumien\+Client} {\bfseries client}
+\item 
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a000e88dc48020575a0072091a0be660d}\label{class_wcf_stream_service_client_1_1_client_a000e88dc48020575a0072091a0be660d}} 
+const int {\bfseries L\+I\+ST} = 1
+\item 
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a163a28cc3a4108d0d0f1d7dc6022f4d8}\label{class_wcf_stream_service_client_1_1_client_a163a28cc3a4108d0d0f1d7dc6022f4d8}} 
+const int {\bfseries U\+P\+L\+O\+AD} = 2
+\item 
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_ae950b7cba78d1a7cec3db7a12d4a7240}\label{class_wcf_stream_service_client_1_1_client_ae950b7cba78d1a7cec3db7a12d4a7240}} 
+const int {\bfseries D\+O\+W\+N\+L\+O\+AD} = 3
+\item 
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a3a259b6d798de8d4a297d2bf4908a3e3}\label{class_wcf_stream_service_client_1_1_client_a3a259b6d798de8d4a297d2bf4908a3e3}} 
+const int {\bfseries E\+X\+IT} = 4
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasa klienta. Pozwala na interakcje z użytkownikiem udostępniając mu tekstowe menu z możliwymi operacjami do wyboru. 
+
+Autor\+: 228141, Konrad Jakubowski. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a04a60e2a76ab51077d00c0219e4ffc3e}\label{class_wcf_stream_service_client_1_1_client_a04a60e2a76ab51077d00c0219e4ffc3e}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Client@{Client}}
+\index{Client@{Client}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Client()}{Client()}}
+{\footnotesize\ttfamily Wcf\+Stream\+Service\+Client.\+Client.\+Client (\begin{DoxyParamCaption}\item[{\hyperlink{class_wcf_stream_service_client_1_1_service_reference1_1_1_strumien_client}{Strumien\+Client}}]{client }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Konstruktor klienta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client} & Strumien\+Client Instancja Strumienia.\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a8344bf9cc6cdb22a11d6f86240d7ed3d}\label{class_wcf_stream_service_client_1_1_client_a8344bf9cc6cdb22a11d6f86240d7ed3d}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Download\+File@{Download\+File}}
+\index{Download\+File@{Download\+File}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Download\+File()}{DownloadFile()}}
+{\footnotesize\ttfamily void Wcf\+Stream\+Service\+Client.\+Client.\+Download\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Metoda umożliwiająca pobranie plików z serwera. Pobranie pliku odbywa się poprzez podanie przez użytkownika nazwy pliku, który chce pobrać. Następnie wysyła do serwera żądanie o pobranie podanego pliku. Po pobraniu informuje o tym użytkownika, następnie wywołuje metodę pomocniczą w celu zapisania pliku. 
+
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a9a86790db59d7ada6ba7c67d470904dc}\label{class_wcf_stream_service_client_1_1_client_a9a86790db59d7ada6ba7c67d470904dc}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!File\+To\+Stream@{File\+To\+Stream}}
+\index{File\+To\+Stream@{File\+To\+Stream}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{File\+To\+Stream()}{FileToStream()}}
+{\footnotesize\ttfamily static Stream Wcf\+Stream\+Service\+Client.\+Client.\+File\+To\+Stream (\begin{DoxyParamCaption}\item[{string}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Metoda pomocnicza mająca za zadanie odczytać plik ze wskazanej ścieżki i zwrócić ten plik w postaci Strumienia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & string Ścieżka do pliku, który zostanie zwrócony w postaci strumienia.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a7ad1660ea61123c161159cb54d863021}\label{class_wcf_stream_service_client_1_1_client_a7ad1660ea61123c161159cb54d863021}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Get\+List\+Of\+Files@{Get\+List\+Of\+Files}}
+\index{Get\+List\+Of\+Files@{Get\+List\+Of\+Files}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Get\+List\+Of\+Files()}{GetListOfFiles()}}
+{\footnotesize\ttfamily void Wcf\+Stream\+Service\+Client.\+Client.\+Get\+List\+Of\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Metoda wykorzystująca Strumień w celu pobrania danych nt. listy plików przechowywanych na serwerze. Po pobraniu drukuje na ekranie konsoli pobraną listę plików lub informuje o braku plików. 
+
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a6d53a06adb60957a2c84413f13d54b4f}\label{class_wcf_stream_service_client_1_1_client_a6d53a06adb60957a2c84413f13d54b4f}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Main@{Main}}
+\index{Main@{Main}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily static void Wcf\+Stream\+Service\+Client.\+Client.\+Main (\begin{DoxyParamCaption}\item[{string \mbox{[}$\,$\mbox{]}}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Główna metoda klasy, która uruchamia główną pętlę programu klienta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em args} & string\mbox{[}\mbox{]} Parametry wywołania (nie są wykorzystywane).\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a2e7604484e1dc3f97b475c6849be1e38}\label{class_wcf_stream_service_client_1_1_client_a2e7604484e1dc3f97b475c6849be1e38}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Read\+Option@{Read\+Option}}
+\index{Read\+Option@{Read\+Option}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Read\+Option()}{ReadOption()}}
+{\footnotesize\ttfamily int Wcf\+Stream\+Service\+Client.\+Client.\+Read\+Option (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Metoda pomocnicza odpowiadająca za interakcję użytkownika z programem pozwalająca na podanie przez użytkownika numeru opcji w menu. Podawanie opcji następuje dopóki użytkownik nie wprowadzi liczby. 
+
+\begin{DoxyReturn}{Returns}
+int Numer opcji wybranej przez użytkownika
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_af48e3d7be49a0136ad495035415e799f}\label{class_wcf_stream_service_client_1_1_client_af48e3d7be49a0136ad495035415e799f}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Run\+Client@{Run\+Client}}
+\index{Run\+Client@{Run\+Client}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Run\+Client()}{RunClient()}}
+{\footnotesize\ttfamily void Wcf\+Stream\+Service\+Client.\+Client.\+Run\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Metoda stanowiąca główną pętlę programu klienta. Wyświetla dostępne opcje dla użytkownika (poprzez wywołanie pomocniczej metody). Zarządza wywoływaniem pomocniczych metod. 
+
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_ac54e9d85bbd737536ca281cedfc8d87c}\label{class_wcf_stream_service_client_1_1_client_ac54e9d85bbd737536ca281cedfc8d87c}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Save\+File@{Save\+File}}
+\index{Save\+File@{Save\+File}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Save\+File()}{SaveFile()}}
+{\footnotesize\ttfamily static void Wcf\+Stream\+Service\+Client.\+Client.\+Save\+File (\begin{DoxyParamCaption}\item[{Stream}]{instream,  }\item[{string}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Metoda pomocnicza umożliwiająca zapisanie pliku ze strumienia do wskazanej ścieżki. Zapisuje plik porcjami. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instream} & Stream Strumień, który ma zostać zapisany\\
+\hline
+{\em file\+Path} & string Ścieżka, do której ma zostać zapisany plik.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a448069d7619faa8b146c87a734fbb8a6}\label{class_wcf_stream_service_client_1_1_client_a448069d7619faa8b146c87a734fbb8a6}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Show\+Options@{Show\+Options}}
+\index{Show\+Options@{Show\+Options}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Show\+Options()}{ShowOptions()}}
+{\footnotesize\ttfamily void Wcf\+Stream\+Service\+Client.\+Client.\+Show\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Metoda pomocnicza odpowiedzialna za wyświetlenie w konsoli dostępnych operacji do wyboru dla użytkownika. 
+
+\mbox{\Hypertarget{class_wcf_stream_service_client_1_1_client_a2262b00b6486bc8db00049dc0d156895}\label{class_wcf_stream_service_client_1_1_client_a2262b00b6486bc8db00049dc0d156895}} 
+\index{Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}!Upload\+File@{Upload\+File}}
+\index{Upload\+File@{Upload\+File}!Wcf\+Stream\+Service\+Client\+::\+Client@{Wcf\+Stream\+Service\+Client\+::\+Client}}
+\subsubsection{\texorpdfstring{Upload\+File()}{UploadFile()}}
+{\footnotesize\ttfamily void Wcf\+Stream\+Service\+Client.\+Client.\+Upload\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Metoda wysyłająca wybrany plik na serwer. Wpierw pobiera listę plików z folderu \textquotesingle{}Uploads\textquotesingle{}, następnie umożliwia użytkownikowi wybranie 1 z przechowywanych tam plików. Po wybraniu pliku, użytkownik ma możliwość podania opisu pliku. Następnie metoda wykorzystuje Strumień w celu wysłania pliku na serwer. Po próbie przesłania informuje użytkownika o powodzeniu operacji. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Wcf\+Stream\+Service\+Client/Client.\+cs\end{DoxyCompactItemize}

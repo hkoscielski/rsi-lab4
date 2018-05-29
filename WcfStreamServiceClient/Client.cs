@@ -8,14 +8,14 @@ using System.IO;
 
 /// <summary>
 /// Obszar nazw dotyczący projektu, który zawiera implementację klienta.
-/// Autor: 228141, Konrad Jakubowski.
+/// Autor: 228172, Hubert Kościelski.
 /// </summary>
 namespace WcfStreamServiceClient
 {
     /// <summary>
     /// Klasa klienta. Pozwala na interakcje z użytkownikiem udostępniając mu tekstowe menu z możliwymi operacjami do wyboru.    
     /// 
-    /// Autor: 228141, Konrad Jakubowski.
+    /// Autor: 228172, Hubert Kościelski.
     /// </summary>
     class Client
     {

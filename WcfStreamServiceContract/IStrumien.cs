@@ -8,13 +8,13 @@ using System.Text;
 
 /// <summary>
 /// Obszar nazw dotyczący projektu, który zawiera interfejs kontraktu serwisu i jego implementację.
-/// Autor: 228141, Konrad Jakubowski.
+/// Autor: 228172, Hubert Kościelski.
 /// </summary>
 namespace WcfStreamServiceContract
 {
     /// <summary>
     /// Interfejs kontraktu. Zawiera sygnatury metod, które powinny być implementowane przez kontrakt.
-    /// Autor: 228141, Konrad Jakubowski.
+    /// Autor: 228172, Hubert Kościelski.
     /// </summary>
     [ServiceContract]
     public interface IStrumien

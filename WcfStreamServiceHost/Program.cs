@@ -9,14 +9,14 @@ using WcfStreamServiceContract;
 
 /// <summary>
 /// Obszar nazw dotyczący projektu, który zawiera implementację serwera - hosta.
-/// Autor: 228141, Konrad Jakubowski.
+/// Autor: 228172, Hubert Kościelski.
 /// </summary>
 namespace WcfStreamServiceHost
 {
     /// <summary>
     /// Główna klasa hosta. 
     /// Zawiera tylko 1 metodę, odpowiedzialną za uruchomienie serwera i jego późniejsze zamknięcie na żądanie użytkownika.
-    /// Autor: 228141, Konrad Jakubowski.
+    /// Autor: 228172, Hubert Kościelski.
     /// </summary>
     class Program
     {

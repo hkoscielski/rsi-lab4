@@ -1,0 +1,175 @@
+\hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien}{}\section{Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien Class Reference}
+\label{class_wcf_stream_service_contract_1_1_moj_strumien}\index{Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien}}
+
+
+Klasa implementująca interfejs \textquotesingle{}\hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien}{I\+Strumien}\textquotesingle{}. Obsługuje wszystkie metody zawarte w interfejsie. Autor\+: 228141, Konrad Jakubowski.  
+
+
+Inheritance diagram for Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_wcf_stream_service_contract_1_1_moj_strumien}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_message}{Response\+File\+Message} \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_af4959737574f4dca1230d168dc5846e8}{Get\+File} (\hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message} request)
+\begin{DoxyCompactList}\small\item\em Metoda pobierająca z serwera plik o określonej nazwie. Metoda jest wywoływana po stronie serwera. Wyszukuje plik o zadanej nazwie w specjalnym katalogu przechowującym pliki i należącym do hosta. Nazwa pliku jest zawarta w typie argumentu\+: \hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message}. \end{DoxyCompactList}\item 
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message} \mbox{[}$\,$\mbox{]} \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_a48ae5c4785e9603cfcf2aa75e2ecd189}{Get\+Files\+Info} ()
+\begin{DoxyCompactList}\small\item\em Metoda pobierająca z serwera listę plików wraz z opisami. Metoda jest wywoływana po stronie serwera. Wyszukuje wszystkie pliki w specjalnym katalogu przechowującym pliki i należącym do hosta. Lista plików jest zwracana w formie tablicy obiektów\+: \hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message}. \end{DoxyCompactList}\item 
+\hyperlink{class_wcf_stream_service_contract_1_1_response_upload_file_message}{Response\+Upload\+File\+Message} \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_a436badd7f8eba36f5f6aae8466ae7416}{Upload\+File} (\hyperlink{class_wcf_stream_service_contract_1_1_request_upload_file_message}{Request\+Upload\+File\+Message} request)
+\begin{DoxyCompactList}\small\item\em Metoda wysyłająca na serwer plik pochodzący od klienta. Metoda jest wywoływana po stronie serwera. W specjalnym folderze zapisuje otrzymany plik. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_aa6fbe99058d30cab2dc035310c441664}{Get\+Text} (string path)
+\begin{DoxyCompactList}\small\item\em Metoda prywatna. Z podanej ścieżki (pliku), pobiera ciąg tekstowy w postaci 1 napisu. \end{DoxyCompactList}\item 
+static void \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_ae8467c3fc2f5c144b588e98bdbf6d0a5}{Save\+Text} (string text, string path)
+\begin{DoxyCompactList}\small\item\em Metoda prywatna. Do podanej ścieżki, zapisuje zadany ciąg tekstowy. \end{DoxyCompactList}\item 
+static void \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_a564bd50d25c5facb1ce1d5eacd966881}{Save\+File} (Stream instream, string file\+Path)
+\begin{DoxyCompactList}\small\item\em Metoda prywatna. Do podanej ścieżki, zapisuje plik zadany w postaci Strumienia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const string \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_acdde11903400acb6062b4b733c86fa4f}{D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON} = \char`\"{}\+\_\+opis.\+txt\char`\"{}
+\begin{DoxyCompactList}\small\item\em string Rozszerzenie pliku tekstowego stanowiącego opis głównego pliku. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Klasa implementująca interfejs \textquotesingle{}\hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien}{I\+Strumien}\textquotesingle{}. Obsługuje wszystkie metody zawarte w interfejsie. Autor\+: 228141, Konrad Jakubowski. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien_af4959737574f4dca1230d168dc5846e8}\label{class_wcf_stream_service_contract_1_1_moj_strumien_af4959737574f4dca1230d168dc5846e8}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}!Get\+File@{Get\+File}}
+\index{Get\+File@{Get\+File}!Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}}
+\subsubsection{\texorpdfstring{Get\+File()}{GetFile()}}
+{\footnotesize\ttfamily \hyperlink{class_wcf_stream_service_contract_1_1_response_file_message}{Response\+File\+Message} Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien.\+Get\+File (\begin{DoxyParamCaption}\item[{\hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda pobierająca z serwera plik o określonej nazwie. Metoda jest wywoływana po stronie serwera. Wyszukuje plik o zadanej nazwie w specjalnym katalogu przechowującym pliki i należącym do hosta. Nazwa pliku jest zawarta w typie argumentu\+: \hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & \hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message} Specjalny typ, w którym przechowywana jest Nazwa pliku do pobrania.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_message}{Response\+File\+Message} Zwraca specjalny obiekt kontraktu, który zawiera nazwę pliku, rozmiar pliku, opis pliku i strumień (dane) pliku.
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien_a4a6bde2f298213a20537461a4a2bf384}{Wcf\+Stream\+Service\+Contract.\+I\+Strumien}.
+
+\mbox{\Hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien_a48ae5c4785e9603cfcf2aa75e2ecd189}\label{class_wcf_stream_service_contract_1_1_moj_strumien_a48ae5c4785e9603cfcf2aa75e2ecd189}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}!Get\+Files\+Info@{Get\+Files\+Info}}
+\index{Get\+Files\+Info@{Get\+Files\+Info}!Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}}
+\subsubsection{\texorpdfstring{Get\+Files\+Info()}{GetFilesInfo()}}
+{\footnotesize\ttfamily \hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message} \mbox{[}$\,$\mbox{]} Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien.\+Get\+Files\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda pobierająca z serwera listę plików wraz z opisami. Metoda jest wywoływana po stronie serwera. Wyszukuje wszystkie pliki w specjalnym katalogu przechowującym pliki i należącym do hosta. Lista plików jest zwracana w formie tablicy obiektów\+: \hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message}. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message}\mbox{[}\mbox{]} Tablica obiektów specjalnego typu zdefiniowanego dla kontraktu. Każdy obiekt zawiera Nazwę pliku i jego Opis.
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien_ae0e59eb415597d2af101adaa7e33032d}{Wcf\+Stream\+Service\+Contract.\+I\+Strumien}.
+
+\mbox{\Hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien_aa6fbe99058d30cab2dc035310c441664}\label{class_wcf_stream_service_contract_1_1_moj_strumien_aa6fbe99058d30cab2dc035310c441664}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}!Get\+Text@{Get\+Text}}
+\index{Get\+Text@{Get\+Text}!Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}}
+\subsubsection{\texorpdfstring{Get\+Text()}{GetText()}}
+{\footnotesize\ttfamily static string Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien.\+Get\+Text (\begin{DoxyParamCaption}\item[{string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Metoda prywatna. Z podanej ścieżki (pliku), pobiera ciąg tekstowy w postaci 1 napisu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & string Ścieżka pliku, z którego zostanie pobrany tekst.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string Napis pobrany z pliku.
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien_a564bd50d25c5facb1ce1d5eacd966881}\label{class_wcf_stream_service_contract_1_1_moj_strumien_a564bd50d25c5facb1ce1d5eacd966881}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}!Save\+File@{Save\+File}}
+\index{Save\+File@{Save\+File}!Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}}
+\subsubsection{\texorpdfstring{Save\+File()}{SaveFile()}}
+{\footnotesize\ttfamily static void Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien.\+Save\+File (\begin{DoxyParamCaption}\item[{Stream}]{instream,  }\item[{string}]{file\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Metoda prywatna. Do podanej ścieżki, zapisuje plik zadany w postaci Strumienia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instream} & Stream Strumień, który ma zostać zapisany jako plik.\\
+\hline
+{\em file\+Path} & string Ścieżka, do której zostanie zapisany strumień.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien_ae8467c3fc2f5c144b588e98bdbf6d0a5}\label{class_wcf_stream_service_contract_1_1_moj_strumien_ae8467c3fc2f5c144b588e98bdbf6d0a5}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}!Save\+Text@{Save\+Text}}
+\index{Save\+Text@{Save\+Text}!Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}}
+\subsubsection{\texorpdfstring{Save\+Text()}{SaveText()}}
+{\footnotesize\ttfamily static void Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien.\+Save\+Text (\begin{DoxyParamCaption}\item[{string}]{text,  }\item[{string}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Metoda prywatna. Do podanej ścieżki, zapisuje zadany ciąg tekstowy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & string Napis, który zostanie zapisany do pliku.\\
+\hline
+{\em path} & strign Ścieżka pliku, do którego zostanie zapisany napis.\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien_a436badd7f8eba36f5f6aae8466ae7416}\label{class_wcf_stream_service_contract_1_1_moj_strumien_a436badd7f8eba36f5f6aae8466ae7416}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}!Upload\+File@{Upload\+File}}
+\index{Upload\+File@{Upload\+File}!Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}}
+\subsubsection{\texorpdfstring{Upload\+File()}{UploadFile()}}
+{\footnotesize\ttfamily \hyperlink{class_wcf_stream_service_contract_1_1_response_upload_file_message}{Response\+Upload\+File\+Message} Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien.\+Upload\+File (\begin{DoxyParamCaption}\item[{\hyperlink{class_wcf_stream_service_contract_1_1_request_upload_file_message}{Request\+Upload\+File\+Message}}]{request }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda wysyłająca na serwer plik pochodzący od klienta. Metoda jest wywoływana po stronie serwera. W specjalnym folderze zapisuje otrzymany plik. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & \hyperlink{class_wcf_stream_service_contract_1_1_request_upload_file_message}{Request\+Upload\+File\+Message} Obiekt zawierający nazwę pliku, opis i strumień (dane) pliku.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_wcf_stream_service_contract_1_1_response_upload_file_message}{Response\+Upload\+File\+Message} Zwraca obiekt, którzy przechowuje informację o powodzeniu operacji (czy plik udało się zapisać).
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien_a1a1d9e27098173c02ad173ace1ef97e3}{Wcf\+Stream\+Service\+Contract.\+I\+Strumien}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_wcf_stream_service_contract_1_1_moj_strumien_acdde11903400acb6062b4b733c86fa4f}\label{class_wcf_stream_service_contract_1_1_moj_strumien_acdde11903400acb6062b4b733c86fa4f}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}!D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON@{D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON}}
+\index{D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON@{D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON}!Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+Moj\+Strumien}}
+\subsubsection{\texorpdfstring{D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON}{DESCRIPTION\_FILE\_EXTENSION}}
+{\footnotesize\ttfamily const string Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien.\+D\+E\+S\+C\+R\+I\+P\+T\+I\+O\+N\+\_\+\+F\+I\+L\+E\+\_\+\+E\+X\+T\+E\+N\+S\+I\+ON = \char`\"{}\+\_\+opis.\+txt\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+string Rozszerzenie pliku tekstowego stanowiącego opis głównego pliku. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Wcf\+Stream\+Service\+Contract/Moj\+Strumien.\+cs\end{DoxyCompactItemize}

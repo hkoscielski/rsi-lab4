@@ -1,0 +1,96 @@
+\hypertarget{interface_wcf_stream_service_contract_1_1_i_strumien}{}\section{Wcf\+Stream\+Service\+Contract.\+I\+Strumien Interface Reference}
+\label{interface_wcf_stream_service_contract_1_1_i_strumien}\index{Wcf\+Stream\+Service\+Contract.\+I\+Strumien@{Wcf\+Stream\+Service\+Contract.\+I\+Strumien}}
+
+
+Interfejs kontraktu. Zawiera sygnatury metod, które powinny być implementowane przez kontrakt. Autor\+: 228141, Konrad Jakubowski.  
+
+
+Inheritance diagram for Wcf\+Stream\+Service\+Contract.\+I\+Strumien\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_wcf_stream_service_contract_1_1_i_strumien}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_message}{Response\+File\+Message} \hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien_a4a6bde2f298213a20537461a4a2bf384}{Get\+File} (\hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message} request)
+\begin{DoxyCompactList}\small\item\em Operacja kontraktu. Metoda powinna pobierać pożądany plik z serwera. \end{DoxyCompactList}\item 
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message} \mbox{[}$\,$\mbox{]} \hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien_ae0e59eb415597d2af101adaa7e33032d}{Get\+Files\+Info} ()
+\begin{DoxyCompactList}\small\item\em Operacja kontraktu. Metoda powinna pobierać listę wszystkich plików przechowywanych an serwerze. \end{DoxyCompactList}\item 
+\hyperlink{class_wcf_stream_service_contract_1_1_response_upload_file_message}{Response\+Upload\+File\+Message} \hyperlink{interface_wcf_stream_service_contract_1_1_i_strumien_a1a1d9e27098173c02ad173ace1ef97e3}{Upload\+File} (\hyperlink{class_wcf_stream_service_contract_1_1_request_upload_file_message}{Request\+Upload\+File\+Message} request)
+\begin{DoxyCompactList}\small\item\em Operacja kontraktu. Metoda powinna wysyłać na serwer wybrany plik. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interfejs kontraktu. Zawiera sygnatury metod, które powinny być implementowane przez kontrakt. Autor\+: 228141, Konrad Jakubowski. 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{interface_wcf_stream_service_contract_1_1_i_strumien_a4a6bde2f298213a20537461a4a2bf384}\label{interface_wcf_stream_service_contract_1_1_i_strumien_a4a6bde2f298213a20537461a4a2bf384}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien}!Get\+File@{Get\+File}}
+\index{Get\+File@{Get\+File}!Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien}}
+\subsubsection{\texorpdfstring{Get\+File()}{GetFile()}}
+{\footnotesize\ttfamily \hyperlink{class_wcf_stream_service_contract_1_1_response_file_message}{Response\+File\+Message} Wcf\+Stream\+Service\+Contract.\+I\+Strumien.\+Get\+File (\begin{DoxyParamCaption}\item[{\hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message}}]{request }\end{DoxyParamCaption})}
+
+
+
+Operacja kontraktu. Metoda powinna pobierać pożądany plik z serwera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & \hyperlink{class_wcf_stream_service_contract_1_1_request_file_message}{Request\+File\+Message} Specjalny typ żądania, zawierający nazwę pliku.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_message}{Response\+File\+Message} Specjalny typ odpowiedzi, zawierający nazwę pliku, jego rozmiar, opis, jak i sam plik.
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_af4959737574f4dca1230d168dc5846e8}{Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien}.
+
+\mbox{\Hypertarget{interface_wcf_stream_service_contract_1_1_i_strumien_ae0e59eb415597d2af101adaa7e33032d}\label{interface_wcf_stream_service_contract_1_1_i_strumien_ae0e59eb415597d2af101adaa7e33032d}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien}!Get\+Files\+Info@{Get\+Files\+Info}}
+\index{Get\+Files\+Info@{Get\+Files\+Info}!Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien}}
+\subsubsection{\texorpdfstring{Get\+Files\+Info()}{GetFilesInfo()}}
+{\footnotesize\ttfamily \hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message} \mbox{[}$\,$\mbox{]} Wcf\+Stream\+Service\+Contract.\+I\+Strumien.\+Get\+Files\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Operacja kontraktu. Metoda powinna pobierać listę wszystkich plików przechowywanych an serwerze. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_wcf_stream_service_contract_1_1_response_file_info_message}{Response\+File\+Info\+Message}\mbox{[}\mbox{]} Tablica zawierająca wszystkie pliki przechoywane na serwerze. Każdy element zawiera nazwę i opis pliku.
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_a48ae5c4785e9603cfcf2aa75e2ecd189}{Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien}.
+
+\mbox{\Hypertarget{interface_wcf_stream_service_contract_1_1_i_strumien_a1a1d9e27098173c02ad173ace1ef97e3}\label{interface_wcf_stream_service_contract_1_1_i_strumien_a1a1d9e27098173c02ad173ace1ef97e3}} 
+\index{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien}!Upload\+File@{Upload\+File}}
+\index{Upload\+File@{Upload\+File}!Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien@{Wcf\+Stream\+Service\+Contract\+::\+I\+Strumien}}
+\subsubsection{\texorpdfstring{Upload\+File()}{UploadFile()}}
+{\footnotesize\ttfamily \hyperlink{class_wcf_stream_service_contract_1_1_response_upload_file_message}{Response\+Upload\+File\+Message} Wcf\+Stream\+Service\+Contract.\+I\+Strumien.\+Upload\+File (\begin{DoxyParamCaption}\item[{\hyperlink{class_wcf_stream_service_contract_1_1_request_upload_file_message}{Request\+Upload\+File\+Message}}]{request }\end{DoxyParamCaption})}
+
+
+
+Operacja kontraktu. Metoda powinna wysyłać na serwer wybrany plik. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em request} & \hyperlink{class_wcf_stream_service_contract_1_1_request_upload_file_message}{Request\+Upload\+File\+Message} Specjalny typ pliku, zawierający nazwę pliku, jego opis, jak i sam plik.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_wcf_stream_service_contract_1_1_response_upload_file_message}{Response\+Upload\+File\+Message} Specjalny typ odpowiedzi. Zawiera informację o tym czy operacja wysyłania się powiodła.
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{class_wcf_stream_service_contract_1_1_moj_strumien_a436badd7f8eba36f5f6aae8466ae7416}{Wcf\+Stream\+Service\+Contract.\+Moj\+Strumien}.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Wcf\+Stream\+Service\+Contract/I\+Strumien.\+cs\end{DoxyCompactItemize}
