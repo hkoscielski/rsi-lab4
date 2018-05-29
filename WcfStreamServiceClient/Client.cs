@@ -13,7 +13,7 @@ using System.IO;
 namespace WcfStreamServiceClient
 {
     /// <summary>
-    /// Klasa klienta. Pozwala na interakcje z użytkownikim udostępniając mu tekstowe menu z możliwymi operacjami do wyboru.    
+    /// Klasa klienta. Pozwala na interakcje z użytkownikiem udostępniając mu tekstowe menu z możliwymi operacjami do wyboru.    
     /// 
     /// Autor: 228141, Konrad Jakubowski.
     /// </summary>
@@ -29,14 +29,16 @@ namespace WcfStreamServiceClient
         /// <summary>
         /// Konstruktor klienta.
         /// </summary>
-        /// <param name="client">Instancja WCF proxy</param>
+        /// <param name="client">StrumienClient Instancja Strumienia.</param>
         public Client(StrumienClient client)
         {
             this.client = client;
         }
 
         /// <summary>
-        /// Metoda odpowiedzialna za uruchomienie programu dla klienta.
+        /// Metoda stanowiąca główną pętlę programu klienta.
+        /// Wyświetla dostępne opcje dla użytkownika (poprzez wywołanie pomocniczej metody).
+        /// Zarządza wywoływaniem pomocniczych metod.
         /// </summary>
         void RunClient()
         {
@@ -86,7 +88,7 @@ namespace WcfStreamServiceClient
         /// pozwalająca na podanie przez użytkownika numeru opcji w menu. 
         /// Podawanie opcji następuje dopóki użytkownik nie wprowadzi liczby.
         /// </summary>
-        /// <returns>int numer opcji wybrany przez użytkownika</returns>
+        /// <returns>int Numer opcji wybranej przez użytkownika</returns>
         private int ReadOption()
         {
             string _line;
@@ -108,6 +110,10 @@ namespace WcfStreamServiceClient
             return _option;
         }
 
+        /// <summary>
+        /// Metoda wykorzystująca Strumień w celu pobrania danych nt. listy plików przechowywanych na serwerze.
+        /// Po pobraniu drukuje na ekranie konsoli pobraną listę plików lub informuje o braku plików.
+        /// </summary>
         private void GetListOfFiles()
         {           
            ResponseFileInfoMessage[] _filesInfo = this.client.GetFilesInfo();
@@ -126,6 +132,13 @@ namespace WcfStreamServiceClient
            }
         }
 
+        /// <summary>
+        /// Metoda wysyłająca wybrany plik na serwer.
+        /// Wpierw pobiera listę plików z folderu 'Uploads', następnie umożliwia użytkownikowi wybranie 1 z przechowywanych tam plików. 
+        /// Po wybraniu pliku, użytkownik ma możliwość podania opisu pliku.
+        /// Następnie metoda wykorzystuje Strumień w celu wysłania pliku na serwer.
+        /// Po próbie przesłania informuje użytkownika o powodzeniu operacji.
+        /// </summary>
         private void UploadFile()
         {
             string _directory = Path.Combine(Environment.CurrentDirectory, "Uploads\\");            
@@ -167,6 +180,12 @@ namespace WcfStreamServiceClient
             }            
         }
 
+        /// <summary>
+        /// Metoda umożliwiająca pobranie plików z serwera.
+        /// Pobranie pliku odbywa się poprzez podanie przez użytkownika nazwy pliku, który chce pobrać.
+        /// Następnie wysyła do serwera żądanie o pobranie podanego pliku. 
+        /// Po pobraniu informuje o tym użytkownika, następnie wywołuje metodę pomocniczą w celu zapisania pliku.
+        /// </summary>
         private void DownloadFile()
         {
             //pobiera plik z serwera
@@ -180,6 +199,12 @@ namespace WcfStreamServiceClient
             SaveFile(_data, _directory);
         }
 
+        /// <summary>
+        /// Metoda pomocnicza umożliwiająca zapisanie pliku ze strumienia do wskazanej ścieżki.
+        /// Zapisuje plik porcjami.
+        /// </summary>
+        /// <param name="instream">Stream Strumień, który ma zostać zapisany</param>
+        /// <param name="filePath">string Ścieżka, do której ma zostać zapisany plik.</param>
         static void SaveFile(Stream instream, string filePath)
         {
             const int bufferLength = 8192; //dlugosc bufora 8KB
@@ -206,15 +231,20 @@ namespace WcfStreamServiceClient
             Console.WriteLine("--> Plik {0} zapisany", filePath);
         }        
 
+        /// <summary>
+        /// Metoda pomocnicza mająca za zadanie odczytać plik ze wskazanej ścieżki i zwrócić ten plik w postaci Strumienia.
+        /// </summary>
+        /// <param name="filePath">string Ścieżka do pliku, który zostanie zwrócony w postaci strumienia.</param>
+        /// <returns></returns>
         static Stream FileToStream(string filePath)
         {            
             return File.Open(filePath, FileMode.Open, FileAccess.Read);
         }
 
         /// <summary>
-        /// Główna metoda klasy, która uruchamia program dla klienta.
+        /// Główna metoda klasy, która uruchamia główną pętlę programu klienta.
         /// </summary>
-        /// <param name="args">string[] parametry wywołania (w zadaniu nie są wykorzystywane)</param>
+        /// <param name="args">string[] Parametry wywołania (nie są wykorzystywane).</param>
         static void Main(string[] args)
         {
             StrumienClient dictionaryClient = new StrumienClient();

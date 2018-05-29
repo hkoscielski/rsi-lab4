@@ -7,10 +7,25 @@ using System.Text;
 using System.Threading.Tasks;
 using WcfStreamServiceContract;
 
+/// <summary>
+/// Obszar nazw dotyczący projektu, który zawiera implementację serwera - hosta.
+/// Autor: 228141, Konrad Jakubowski.
+/// </summary>
 namespace WcfStreamServiceHost
 {
+    /// <summary>
+    /// Główna klasa hosta. 
+    /// Zawiera tylko 1 metodę, odpowiedzialną za uruchomienie serwera i jego późniejsze zamknięcie na żądanie użytkownika.
+    /// Autor: 228141, Konrad Jakubowski.
+    /// </summary>
     class Program
     {
+        /// <summary>
+        /// Jedyna metoda programu będącego hostem.
+        /// Tworzy instancję serwisu, dodaje endpointy, ustawia metadane.
+        /// Następnie uruchamia serwis i oczekuje na jego zamknięcie wskutek żądania użytkownika.
+        /// </summary>
+        /// <param name="args">string[] Parametry wywołania (nie są wykorzystywane).</param>
         static void Main(string[] args)
         {
             // Krok 1 Utworz URI dla bazowego adresu serwisu.
